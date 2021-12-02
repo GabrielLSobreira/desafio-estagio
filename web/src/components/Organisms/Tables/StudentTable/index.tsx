@@ -179,6 +179,7 @@ const StudentTable: React.FC = () => {
           setEdit={setEdit}
           currentEdit={currentEdit}
           attStudents={handleAttStudents}
+          students={students}
         />
       )}
     </>

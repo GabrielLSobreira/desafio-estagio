@@ -25,6 +25,7 @@ interface ModalProps {
   attStudents: (student: Student, isEditing: boolean) => void;
   setEdit: React.Dispatch<SetStateAction<boolean>>;
   setModal: React.Dispatch<SetStateAction<boolean>>;
+  students: Student[];
 }
 
 const Modal = ({
@@ -32,7 +33,8 @@ const Modal = ({
   currentEdit,
   attStudents,
   setModal,
-  setEdit
+  setEdit,
+  students
 }: ModalProps) => {
   const [nome, setNome] = useState<string>('');
   const [email, setEmail] = useState<string>('');
@@ -84,6 +86,9 @@ const Modal = ({
     const values = { nome, email, cep, estado, cidade };
 
     if (!edit) {
+      if (students.some(st => st.email === email)) {
+        return toastError('Email já cadastrado!');
+      }
       await api.post('/alunos', values).then(res => {
         attStudents(res.data, false);
       });
