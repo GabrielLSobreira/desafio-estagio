@@ -75,6 +75,10 @@ export const Item = styled.div`
   border-bottom: solid 1px #aaa;
   background: transparent;
 
+  a {
+    color: #3f51bc;
+  }
+
   @media (max-width: 700px) {
     :nth-last-child(1) {
       border-bottom: solid 1px #aaa;
