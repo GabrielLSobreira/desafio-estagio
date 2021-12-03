@@ -7,7 +7,12 @@ const Operations: React.FC = () => {
     <Dashboard
       title="Alunos"
       description={
-        <p>Aqui você terá acesso à todos os alunos do nosso banco de dados</p>
+        <p>
+          Aqui você terá acesso à todos os alunos do nosso banco de dados.
+          <br />
+          Caso queira ver todos os cursos disponíveis para o aluno clique em seu
+          nome.
+        </p>
       }
     >
       <StudentTable />
