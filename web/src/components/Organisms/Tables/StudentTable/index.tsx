@@ -17,6 +17,7 @@ import useWindowSize from '@/hooks/useWindowSize';
 import { Button } from '@material-ui/core';
 import { buttonTheme } from '@/utils/Config';
 import Modal from '../../Modal';
+import Link from 'next/link';
 
 const StudentTable: React.FC = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -98,7 +99,11 @@ const StudentTable: React.FC = () => {
                   students.map((student, key) => (
                     <BodyLine key={key}>
                       <Item> {student.id} </Item>
-                      <Item> {student.nome} </Item>
+                      <Item>
+                        <Link href={`alunos/${student.id}`}>
+                          <a>{student.nome}</a>
+                        </Link>
+                      </Item>
                       <Item> {student.email} </Item>
                       <Item> {student.cep} </Item>
                       <Item> {student.estado} </Item>
